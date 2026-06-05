@@ -1,0 +1,100 @@
+Day 4 Practice Questions
+
+
+1. Explain the 5 Vs of Big Data using Flipkart as an example.
+
+The 5 Vs of Big Data are:
+
+* Volume: Flipkart generates huge amounts of data from orders, reviews, and transactions.
+* Velocity: Data is generated rapidly during events like Big Billion Days sales.
+* Variety: Data includes text, images, videos, payment records, and customer reviews.
+* Veracity: Data quality must be maintained by removing fake reviews and incorrect information.
+* Value: Data is analyzed to provide recommendations, improve customer experience, and increase sales.
+
+
+2. Difference Between Transformation and Action in PySpark
+
+Transformation creates a new DataFrame or RDD without executing immediately. It follows lazy evaluation.
+
+Example:
+
+python
+
+df_filtered = df.filter(df.salary > 50000)
+
+
+Action triggers execution and produces a result.
+
+Example:
+
+python
+
+df_filtered.show()
+
+
+Common Transformations: filter(), select(), groupBy()
+
+Common Actions: show(), count(), collect()
+
+
+3. PySpark Code to Find Top 5 Cities by Total Revenue
+
+python
+from pyspark.sql.functions import sum
+
+top5_cities = (
+    sales_df
+    .groupBy("city")
+    .agg(sum("revenue").alias("total_revenue"))
+    .orderBy("total_revenue", ascending=False)
+    .limit(5)
+)
+
+top5_cities.show()
+
+
+This groups sales by city, calculates total revenue, sorts in descending order, and displays the top 5 cities.
+
+
+4. Why is Parquet Preferred Over CSV?
+
+1. Better Compression – Uses less storage space.
+2. Faster Queries – Reads only required columns.
+3. Schema Support – Stores data types and metadata automatically.
+
+Because of these advantages, Parquet is widely used in Spark, Hadoop, and Databricks environments.
+
+
+5. Explain Medallion Architecture
+
+Medallion Architecture organizes data into three layers:
+
+* Bronze Layer: Raw data collected from source systems.
+* Silver Layer: Cleaned and validated data after transformation.
+* Gold Layer: Business-ready data used for dashboards and reporting.
+
+Flow:
+
+Source Data → Bronze → Silver → Gold
+
+This architecture improves data quality and simplifies analytics.
+
+
+6. Difference Between Data Lake and Data Warehouse
+
+
+Data Lake:
+
+ Used for storing large volumes of raw data.
+Stores raw data
+Supports all data types
+Used for analytics and ML
+Lower storage cost
+
+Data Warehouse:
+
+ Used for business reports, dashboards, and decision-making.
+Stores processed data
+Mostly structured data
+Used for reporting and BI
+Higher storage cost
