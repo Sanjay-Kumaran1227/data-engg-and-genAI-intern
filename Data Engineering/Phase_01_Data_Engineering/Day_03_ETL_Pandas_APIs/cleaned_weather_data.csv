@@ -1,0 +1,6 @@
+city,country,temperature,feels_like,humidity,pressure,weather,wind_speed,date_time
+Chennai,IN,39.39,46.39,45,1002,Overcast Clouds,1.79,2026-06-05 09:16:57
+Coimbatore,IN,31.08,32.75,50,1007,Overcast Clouds,7.74,2026-06-05 09:16:57
+Bengaluru,IN,29.04,31.58,63,1008,Overcast Clouds,7.5,2026-06-05 09:16:57
+Hyderabad,IN,32.06,32.93,43,1004,Overcast Clouds,5.17,2026-06-05 09:16:57
+Mumbai,IN,31.64,38.64,73,1005,Clear Sky,5.41,2026-06-05 09:16:57
